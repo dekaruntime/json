@@ -5,4 +5,4 @@ export {
   json_last_error,
   json_last_error_msg,
   json_validate,
-} from 'encoding/json';
+} from '@deka/encoding/json';
