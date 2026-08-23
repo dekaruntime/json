@@ -1,8 +1,5 @@
 {
   "name": "@deka/json",
-  "version": "0.1.0",
-  "main": "index.phpx",
-  "dependencies": {
-    "@deka/encoding": "0.1.0"
-  }
+  "version": "0.2.0",
+  "main": "index.ds"
 }
