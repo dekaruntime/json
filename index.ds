@@ -1,6 +1,6 @@
 // JSON in DekaScript. No host kind: parse/stringify are JS, not Rust.
 
-export fn stringify(value: object) {
+export fn stringify<T>(value: T) {
   return unsafe { JSON.stringify(value) }
 }
 
