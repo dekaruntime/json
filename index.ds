@@ -1,8 +1,9 @@
-// JSON in DekaScript. No host kind: parse/stringify are JS, not Rust.
-
-export fn stringify<T>(value: T) {
-  return unsafe<string> { JSON.stringify(value) }
-}
+// JSON in DekaScript. No host kind: parse is JS, not Rust.
+//
+// stringify is intentionally unavailable until RFD 43 lands. JSON support is
+// moving into the language as toJSON() and parseJSON<T>() methods using the
+// static-dispatch model from RFD 40; do not replace it with a dishonest top
+// type or another user-declared generic.
 
 export fn parse(text: string) {
   return unsafe { JSON.parse(text) }
