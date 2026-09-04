@@ -1,17 +1,9 @@
-// JSON in DekaScript. No host kind: parse is JS, not Rust.
+// JSON convenience operations are moving into the language in rfd#43.
 //
-// stringify is intentionally unavailable until RFD 43 lands. JSON support is
-// moving into the language as toJSON() and parseJSON<T>() methods using the
-// static-dispatch model from RFD 40; do not replace it with a dishonest top
-// type or another user-declared generic.
-
-export fn parse(text: string) {
-  return unsafe { JSON.parse(text) }
-}
-
-export fn validate(text: string) {
-  return match (parse(text)) {
-    Ok(v) => Ok(true),
-    Err(e) => Ok(false)
-  }
-}
+// The compiler-owned toJSON() and parseJSON<T>() methods provide the typed,
+// round-trippable surface. This package is intentionally transitional: the
+// former untyped parse/stringify helpers are removed rather than reintroduced
+// with a dishonest top type or an unsafe JSON.parse wrapper.
+//
+// Higher-level helpers such as flatten-for-display, sorted keys, and pretty
+// printing will be added here on top of the language methods.
